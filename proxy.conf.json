@@ -1,0 +1,7 @@
+{
+    "/api/*":{
+        "target": "https://lab.arkbox.co/api/",
+        "secure": false,
+        "loglevel": "debug",
+    }
+}
