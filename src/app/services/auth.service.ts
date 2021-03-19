@@ -6,13 +6,12 @@ import { HttpClient } from '@angular/common/http'
 })
 export class AuthService {
 
-  private URL = 'https://lab.arkbox.co/api/'
+  private URL = 'http://localhost:3000/api'
   
   constructor(public http: HttpClient) { }
 
-  signIn(user){
-    console.log(user)
-    return this.http.post<any>(this.URL + 'account/login', user)
+  signIn(user){   
+    return this.http.post<any>(this.URL + '/account/login', user)
   }
 
   loggedIn(){
@@ -20,11 +19,6 @@ export class AuthService {
   }
 
   getToken(){
-    if (!localStorage.getItem('token')){
-      return "jwttoken"
-    }else{
       return localStorage.getItem('token')
-    }
-
   }
 }

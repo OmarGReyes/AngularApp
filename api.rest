@@ -6,3 +6,22 @@ Content-Type: application/json
     "username": "patata",
     "password": "MrPotat0"
 }
+
+
+###
+POST http://localhost:3000/api/account/login
+Content-Type: application/json
+
+{
+    "username": "patata",
+    "password": "MrPotat0"
+}
+
+###
+POST http://localhost:3000/api/signup
+Content-Type: application/json
+
+{
+    "username": "patata",
+    "password": "MrPotat0"
+}

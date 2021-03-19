@@ -4,8 +4,10 @@ import { AuthGuard } from './auth.guard'
 
 //components
 import { HomeComponent } from './components/home/home.component' ;
-import { EmployeesComponent } from './components/employees/employees.component';
+import { EmployeeComponent } from './components/employees/employees.component';
 import { SigninComponent } from './components/signin/signin.component'; 
+import { NewemployeeComponent } from './components/newemployee/newemployee.component';
+import { ModifyemployeeComponent } from './components/modifyemployee/modifyemployee.component';
 
 const routes: Routes = [
   {
@@ -14,12 +16,18 @@ const routes: Routes = [
   },
   {
     path: 'employees',
-    component: EmployeesComponent,
-    canActivate: [AuthGuard]
+    component: EmployeeComponent,
   },
   {
     path: 'signin',
     component: SigninComponent
+  },
+  {
+    path: 'newemployee',
+    component: NewemployeeComponent
+  },{
+    path: 'modifyemployee',
+    component: ModifyemployeeComponent
   }
 ];
 
