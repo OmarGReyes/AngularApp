@@ -10,7 +10,8 @@ export class AuthService {
   
   constructor(public http: HttpClient) { }
 
-  signIn(user){   
+  signIn(user){
+    console.log(user);
     return this.http.post<any>(this.URL + '/account/login', user)
   }
 

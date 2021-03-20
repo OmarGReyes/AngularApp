@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeesService } from '../../services/employees.service'
 import {NgForm} from '@angular/forms'
 import {Employee} from 'src/app/Models/Employee'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-newemployee',
@@ -10,7 +11,10 @@ import {Employee} from 'src/app/Models/Employee'
 })
 export class NewemployeeComponent implements OnInit {
 
-  constructor(public employeesService: EmployeesService) { }
+  constructor(
+    public employeesService: EmployeesService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
   }
@@ -29,30 +33,22 @@ export class NewemployeeComponent implements OnInit {
   }
 
   addEmployee(form:NgForm){
-    if (form.value._id){
-      this.employeesService.putEmployee(form.value).subscribe(
-        res => {
-          this.getEmployees(),
-          form.reset()
-        },
-        err => console.log(err)
-      )
-      
-    }else{
       this.employeesService.createEmployee(form.value).subscribe(
         res => {
+          
+          // console.log(res);
           this.getEmployees(),
           form.reset()
+          this.router.navigate(['/employees'])
         },
         req => console.log(req)
         )
-      }
     
   }
 
-  deleteEmployee(id: string){
+  deleteEmployee(employee: Employee){
     if (confirm('Sure to delete?')){
-      this.employeesService.deleteEmployee(id).subscribe(
+      this.employeesService.deleteEmployee(employee).subscribe(
         (res) => {
           this.getEmployees()
         },

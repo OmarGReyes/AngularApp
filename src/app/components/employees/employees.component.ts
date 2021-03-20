@@ -31,8 +31,6 @@ export class EmployeeComponent implements OnInit {
   getEmployees(){
     this.employeesService.getEmployees().subscribe(
       res => {
-        console.log(res['Data']);
-        
         this.employeesService.employees = res['Data'];
       },
       err => console.log(err)
@@ -40,30 +38,21 @@ export class EmployeeComponent implements OnInit {
   }
 
   addEmployee(form:NgForm){
-    if (form.value._id){
-      this.employeesService.putEmployee(form.value).subscribe(
-        res => {
-          this.getEmployees(),
-          form.reset()
-        },
-        err => console.log(err)
-      )
-      
-    }else{
-      this.employeesService.createEmployee(form.value).subscribe(
-        res => {
-          this.getEmployees(),
-          form.reset()
-        },
-        req => console.log(req)
-        )
-      }
-    
+    this.employeesService.createEmployee(form.value).subscribe(
+      res => {
+        console.log(form.value);
+        console.log(res);
+        //this.getEmployees(),
+        //form.reset()
+      },
+      req => console.log(req)
+    )
   }
+    
 
-  deleteEmployee(id: string){
+  deleteEmployee(employee: Employee){
       if (confirm('Sure to delete?')){
-        this.employeesService.deleteEmployee(id).subscribe(
+        this.employeesService.deleteEmployee(employee).subscribe(
           (res) => {
             this.getEmployees()
           },
@@ -76,13 +65,28 @@ export class EmployeeComponent implements OnInit {
       this.employeesService.selectedEmployee = employee
   }
 
-      
+  modifyEmployee(employee: Employee){
+    console.log(employee);
+    
+    this.employeesService.putEmployee(employee).subscribe(
+      res => {
+        console.log(res);
+        //this.getEmployees(),
+        //form.reset()
+      },
+      err => console.log(err)
+    )
+  }
+
+
+   
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
+
   }
   
   private getDismissReason(reason: any): string {

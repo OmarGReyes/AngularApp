@@ -8,26 +8,32 @@ import { EmployeeComponent } from './components/employees/employees.component';
 import { SigninComponent } from './components/signin/signin.component'; 
 import { NewemployeeComponent } from './components/newemployee/newemployee.component';
 import { ModifyemployeeComponent } from './components/modifyemployee/modifyemployee.component';
+import {NavbarComponent} from './components/navbar/navbar.component'
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
-  },
-  {
-    path: 'employees',
-    component: EmployeeComponent,
-  },
-  {
-    path: 'signin',
-    component: SigninComponent
-  },
-  {
-    path: 'newemployee',
-    component: NewemployeeComponent
-  },{
-    path: 'modifyemployee',
-    component: ModifyemployeeComponent
+    component: NavbarComponent,
+    children: [{
+      path: '',
+      component: HomeComponent
+    },
+    {
+      path: 'employees',
+      component: EmployeeComponent
+    },
+    {
+      path: 'signin',
+      component: SigninComponent
+    },
+    {
+      path: 'newemployee',
+      component: NewemployeeComponent
+    },{
+      path: 'modifyemployee',
+      component: ModifyemployeeComponent
+    }
+    ]
   }
 ];
 

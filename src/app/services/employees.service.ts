@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
+import {HttpClient, HttpParams} from '@angular/common/http'
 import { Employee } from '../Models/Employee'
+import { NgForm } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ export class EmployeesService {
   URL_API = "http://localhost:3000/api/subscribers"
 
   selectedEmployee: Employee = {
+    Id:0,
     Name: '',
     Email: '',
     CountryCode: '',
@@ -26,18 +28,22 @@ export class EmployeesService {
   constructor (public http: HttpClient){}
 
   getEmployees(){
-    return this.http.get<Employee[]>(this.URL_API)
+    let params = new HttpParams().set("count","20");
+    return this.http.get<Employee[]>(this.URL_API, {params: params} )
   }
 
   createEmployee(employee: Employee){
     return this.http.post(this.URL_API, employee);
   }
 
-  deleteEmployee(Id: string){
-    return this.http.delete(`${this.URL_API}/${Id}`)
+  deleteEmployee(employee: Employee){
+    console.log(employee.Id);
+    return this.http.delete(`${this.URL_API}/${employee.Id}`)
   }
 
   putEmployee(employee: Employee){
-    return this.http.put(`${this.URL_API}/${employee.Id}`, employee)
+    console.log(employee.Id);
+    
+    return this.http.put<Employee[]>(`${this.URL_API}/${employee.Id}`, employee)
   }
 }
