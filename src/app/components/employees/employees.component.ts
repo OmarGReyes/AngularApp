@@ -1,5 +1,5 @@
 import { compileNgModule } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {EmployeesService} from '../../services/employees.service'
 import { NgForm } from '@angular/forms'
 import { Employee } from 'src/app/Models/Employee';
@@ -9,7 +9,8 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.component.html',
-  styleUrls: ['./employees.component.css']
+  styleUrls: ['./employees.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class EmployeeComponent implements OnInit {
 
@@ -62,12 +63,13 @@ export class EmployeeComponent implements OnInit {
   }
 
   editEmployee(employee: Employee){
+      console.log(employee);
+      
       this.employeesService.selectedEmployee = employee
   }
 
   modifyEmployee(employee: Employee){
-    console.log(employee);
-    
+
     this.employeesService.putEmployee(employee).subscribe(
       res => {
         console.log(res);
@@ -81,7 +83,7 @@ export class EmployeeComponent implements OnInit {
 
    
   open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title',scrollable: true }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;

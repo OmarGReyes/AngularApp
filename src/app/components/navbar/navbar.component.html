@@ -17,8 +17,18 @@
               Employees
             </a>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-              <li><a class="dropdown-item" routerLink="/newemployee">New employee</a></li>
-              <li><a class="dropdown-item" routerLink="/employees">All employees</a></li>
+              <li>
+                <a class="dropdown-item" routerLink="/newemployee">
+                  New employee
+                  <i class="material-icons">person</i>
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" routerLink="/employees">
+                  All employees
+                  <i class="material-icons">groups</i>
+                </a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -35,6 +45,8 @@
   </div>
 </nav>
 
-<router-outlet></router-outlet>
+<div class="container p-5">
+  <router-outlet></router-outlet>
+</div>
 
 
