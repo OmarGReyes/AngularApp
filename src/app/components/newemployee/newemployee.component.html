@@ -1,7 +1,8 @@
 <div class="container p-5">
-    <h2>Enter the information for the new employee</h2>
+    
+    <h2 i18n="TitleNewEmployee|Title for new employee@@constructionTitleNewEmployee">Enter the information for the new employee</h2>
 
-    <form #employeeForm="ngForm" (ngSubmit)="addEmployee(employeeForm)">
+    <form #employeeForm="ngForm">
 
         <input type="hidden" name="Id" [(ngModel)]="employeesService.selectedEmployee.Id">
 
@@ -18,8 +19,8 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="newCountryCode">Code</label>
-                    <select type="text" class="form-control" name="CountryCode" placeholder="+57" [(ngModel)]="employeesService.selectedEmployee.PhoneCode">
+                    <label for="newCountryCode">Code number</label>
+                    <select type="text" class="form-control" name="PhoneCode" placeholder="+57" [(ngModel)]="employeesService.selectedEmployee.PhoneCode">
                         <option data-countryCode="CO" value="57">Colombia (+57)</option>
                         <option data-countryCode="US" value="1">USA (+1)</option>
                         <optgroup label="Other countries">
@@ -506,7 +507,7 @@
             <label for="newArea">Area</label>
             <input type="text" class="form-control" name="Area" placeholder="Innovation" [(ngModel)]="employeesService.selectedEmployee.Area">
         </div>
-            <button class="btn btn-outline-primary align-item-center">Save</button>
-            <button class="btn btn-outline-secondary ml-2" (click)= "resetForm(employeeForm)">Clear</button>
+            <button class="btn btn-primary align-item-center" (click)="addEmployee(employeeForm)">Save</button>
+            <button class="btn btn-secondary ml-2" (click)= "resetForm(employeeForm)">Clear</button>
     </form>
 </div>

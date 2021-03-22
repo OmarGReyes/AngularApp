@@ -8,7 +8,7 @@ import { EmployeeComponent } from './components/employees/employees.component';
 import { SigninComponent } from './components/signin/signin.component'; 
 import { NewemployeeComponent } from './components/newemployee/newemployee.component';
 import { ModifyemployeeComponent } from './components/modifyemployee/modifyemployee.component';
-import {NavbarComponent} from './components/navbar/navbar.component'
+import { NavbarComponent } from './components/navbar/navbar.component'
 
 const routes: Routes = [
   {

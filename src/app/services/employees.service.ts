@@ -33,17 +33,15 @@ export class EmployeesService {
   }
 
   createEmployee(employee: Employee){
+    console.log(employee);
     return this.http.post(this.URL_API, employee);
   }
 
   deleteEmployee(employee: Employee){
-    console.log(employee.Id);
     return this.http.delete(`${this.URL_API}/${employee.Id}`)
   }
 
   putEmployee(employee: Employee){
-    console.log(employee.Id);
-    
     return this.http.put<Employee[]>(`${this.URL_API}/${employee.Id}`, employee)
   }
 }

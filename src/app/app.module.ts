@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgbModule,NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap'
+import '@angular/localize/init'
 
 
 
@@ -29,7 +30,7 @@ import { FooterComponent } from './components/footer/footer.component'
     NewemployeeComponent,
     ModifyemployeeComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +39,7 @@ import { FooterComponent } from './components/footer/footer.component'
     HttpClientModule,
     NgbModule,
     NgbPaginationModule, 
-    NgbAlertModule
+    NgbAlertModule,
   ],
   providers: [
     AuthGuard,

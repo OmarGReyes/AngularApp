@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Employees CRUD</a>
@@ -16,18 +16,22 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Employees
             </a>
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+            <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
               <li>
-                <a class="dropdown-item" routerLink="/newemployee">
-                  New employee
-                  <i class="material-icons">person</i>
-                </a>
+                <div class="d-flex">
+                  <i class="material-icons ml-2">person</i>
+                  <a class="dropdown-item" routerLink="/newemployee">
+                    New employee
+                  </a>
+                </div>
               </li>
               <li>
-                <a class="dropdown-item" routerLink="/employees">
-                  All employees
-                  <i class="material-icons">groups</i>
-                </a>
+                <div class="d-flex">
+                  <i class="material-icons ml-2">groups</i>
+                  <a class="dropdown-item" routerLink="/employees">
+                    All employees
+                  </a>
+                </div>
               </li>
             </ul>
           </li>
