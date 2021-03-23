@@ -6,7 +6,6 @@ import { NgbModule,NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-
 import '@angular/localize/init'
 
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmployeeComponent } from './components/employees/employees.component';

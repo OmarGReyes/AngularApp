@@ -1,6 +1,6 @@
-<div class="container p-5">
+<div class="container p-2">
     
-    <h2 i18n="TitleNewEmployee|Title for new employee@@constructionTitleNewEmployee">Enter the information for the new employee</h2>
+    <h2 class="mt-2 mb-4" i18n="TitleNewEmployee|Title for new employee@@constructionTitleNewEmployee">Enter the information for the new employee</h2>
 
     <form #employeeForm="ngForm">
 
@@ -249,7 +249,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="form-group">
                     <label for="newCountryName">Country</label>
                     <select type="text" class="form-control" name="CountryName" placeholder="Colombia" [(ngModel)]="employeesService.selectedEmployee.CountryName">
@@ -494,6 +494,12 @@
                         <option value="Zambia">Zambia</option> 
                         <option value="Zimbabwe">Zimbabwe</option>
                     </select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="newJobTitle">Country code</label>
+                    <input type="text" class="form-control" name="CountryCode" placeholder="Developer" [(ngModel)]="employeesService.selectedEmployee.CountryCode">
                 </div>
             </div>
             <div class="col">

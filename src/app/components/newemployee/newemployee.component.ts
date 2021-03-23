@@ -35,11 +35,11 @@ export class NewemployeeComponent implements OnInit {
   }
 
   addEmployee(form:NgForm){
-    if(!form.value.Name){
+    if(!form.value.Name || !form.value.Email || !form.value.PhoneNumber){
       Swal.fire({  
         icon: 'error',  
-        title: 'Oops...',  
-        text: 'Something went wrong!',   
+        title: 'Sorry',  
+        text: 'You must enter a name, email and a phone number',   
       })
     }else{
       this.employeesService.createEmployee(form.value).subscribe(
@@ -50,9 +50,9 @@ export class NewemployeeComponent implements OnInit {
           this.router.navigate(['/employees'])
           Swal.fire({    
             icon: 'success',  
-            title: `The employee ${form.value.name} has been created`,  
+            title: `The employee  has been created`,  
             showConfirmButton: false,  
-            timer: 1000  
+            timer: 1500  
           }) 
         },
         req => console.log(req)

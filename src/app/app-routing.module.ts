@@ -20,7 +20,8 @@ const routes: Routes = [
     },
     {
       path: 'employees',
-      component: EmployeeComponent
+      component: EmployeeComponent,
+      canActivate: [AuthGuard]
     },
     {
       path: 'signin',
@@ -28,10 +29,8 @@ const routes: Routes = [
     },
     {
       path: 'newemployee',
-      component: NewemployeeComponent
-    },{
-      path: 'modifyemployee',
-      component: ModifyemployeeComponent
+      component: NewemployeeComponent,
+      canActivate: [AuthGuard]
     }
     ]
   }
