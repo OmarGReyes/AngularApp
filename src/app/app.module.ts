@@ -5,7 +5,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgbModule,NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap'
 import '@angular/localize/init'
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmployeeComponent } from './components/employees/employees.component';
@@ -17,8 +16,6 @@ import { NewemployeeComponent } from './components/newemployee/newemployee.compo
 import { ModifyemployeeComponent } from './components/modifyemployee/modifyemployee.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component'
-
-
 
 @NgModule({
   declarations: [
