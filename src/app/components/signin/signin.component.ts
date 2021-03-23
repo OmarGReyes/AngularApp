@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service'
 import { Router } from '@angular/router'
-
+import  Swal  from 'sweetalert2'
 
 @Component({
   selector: 'app-signin',
@@ -30,7 +30,16 @@ export class SigninComponent implements OnInit {
         localStorage.setItem('token', res.token);
         this.router.navigate(['/employees'])
       },
-      err => console.log(err)
+      err => {
+        Swal.fire({
+          title: 'Error',   
+          text: err.error,  
+          showConfirmButton: false,  
+          timer: 1000
+        } 
+        )
+      }
+
       
     )
     
