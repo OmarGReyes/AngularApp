@@ -8,7 +8,7 @@ import { NgForm } from '@angular/forms';
 })
 export class EmployeesService {
 
-  URL_API = "http://localhost:3000/api/subscribers"
+  URL_API = "https://simpleatuhjs.herokuapp.com/api/subscribers"
 
   selectedEmployee: Employee = {
     Id:0,
